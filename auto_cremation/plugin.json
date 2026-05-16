@@ -1,0 +1,23 @@
+[{
+  "id": "$auto_cremation_depot_01",
+  "type": "commercial",
+  "width": 2,
+  "height": 2,
+  "author": "nliuecom",
+  "version": 1,
+  "frames": [{"bmp": "transport_depot.png"}],
+  "script": "#LuaWrapper",
+  "meta": {
+    "luawrapper": {
+      "script": "script.lua"
+    }
+  },
+  "title": {"en": "Cremation Transport Depot"},
+  "text": {
+    "en": "Automatically transports the deceased from every cemetery in the city to the nearest available crematorium. Keeps burial grounds clear without any manual intervention. Range: city-wide. Scans every 256 ticks."
+  },
+  "price": 4000,
+  "monthly cost": 300,
+  "requirements": [],
+  "level": 8
+}]
