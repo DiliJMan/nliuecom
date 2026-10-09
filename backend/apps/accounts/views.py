@@ -130,3 +130,37 @@ class UserGroupViewSet(ScopedModelViewSet):
     domain_lookup = None
     queryset = UserGroup.objects.prefetch_related("members")
     serializer_class = UserGroupSerializer
+
+
+class DirectoryView(APIView):
+    """Names and addresses of active users, for owner and assignee pickers.
+
+    Open to anyone who holds a role (or is an administrator), so a person with no access yet
+    cannot enumerate colleagues.
+    """
+
+    @extend_schema(
+        responses=inline_serializer(
+            "DirectoryEntry",
+            {
+                "id": serializers.UUIDField(),
+                "email": serializers.EmailField(),
+                "name": serializers.CharField(),
+            },
+            many=True,
+        )
+    )
+    def get(self, request):
+        from django.db.models import Q
+
+        from apps.access.models import RoleAssignment
+
+        user = request.user
+        allowed = (
+            user.is_superuser
+            or RoleAssignment.objects.filter(Q(user=user) | Q(group__members=user)).exists()
+        )
+        if not allowed:
+            return Response([], status=status.HTTP_403_FORBIDDEN)
+        rows = User.objects.filter(is_active=True).order_by("email")
+        return Response([{"id": u.pk, "email": u.email, "name": u.display_name} for u in rows])

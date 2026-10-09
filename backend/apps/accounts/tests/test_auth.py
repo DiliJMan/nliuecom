@@ -111,3 +111,21 @@ def test_anonymous_requests_are_rejected():
     client = APIClient()
     for url in ("/api/domains/", "/api/users/", "/api/audit/", "/api/attachments/", "/api/schema/"):
         assert client.get(url).status_code in {401, 403}, url
+
+
+def test_directory_is_for_people_who_hold_a_role(api, admin, make_user, tree, grant):
+    nobody, reader = (
+        make_user("nobody@example.com", first_name="No"),
+        make_user("reader@example.com", first_name="Rhea"),
+    )
+    make_user("inactive@example.com", is_active=False)
+    grant(reader, "Reader", tree["asia"])
+    assert api(nobody).get("/api/auth/directory/").status_code == 403
+    rows = api(reader).get("/api/auth/directory/").data
+    assert [r["email"] for r in rows] == [
+        "admin@example.com",
+        "nobody@example.com",
+        "reader@example.com",
+    ]
+    assert next(r for r in rows if r["email"] == "reader@example.com")["name"] == "Rhea"
+    assert "password" not in rows[0] and len(api(admin).get("/api/auth/directory/").data) == 3

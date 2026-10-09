@@ -6,10 +6,21 @@ from apps.core.serializers import DomainObjectSerializer
 from .models import RiskAssessment, RiskMatrix, RiskScenario
 
 
+class MatrixStepSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=60)
+    description = serializers.CharField(max_length=300, required=False, allow_blank=True)
+
+
+class MatrixLevelSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=60)
+    colour = serializers.CharField(max_length=7)
+    description = serializers.CharField(max_length=300, required=False, allow_blank=True)
+
+
 class RiskMatrixSerializer(serializers.ModelSerializer):
-    probability = serializers.ListField(child=serializers.DictField())
-    impact = serializers.ListField(child=serializers.DictField())
-    levels = serializers.ListField(child=serializers.DictField())
+    probability = MatrixStepSerializer(many=True)
+    impact = MatrixStepSerializer(many=True)
+    levels = MatrixLevelSerializer(many=True)
     grid = serializers.ListField(child=serializers.ListField(child=serializers.IntegerField()))
 
     class Meta:

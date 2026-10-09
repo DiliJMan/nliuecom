@@ -17,11 +17,20 @@ Each phase ends with a working, tested slice. Names under "Reference feature" ar
 
 Still open in Phase 0 and carried forward: visual role editor, custom field definition screens, attachment upload screen, TOTP multi-factor authentication, automated local backup.
 
-## Phase 1: Core GRC
+## Phase 1: Core GRC (this repository)
 
-Asset management, risk assessments (configurable matrix, scenarios, treatment), applied controls, multiple frameworks with compliance assessments, framework customisation, evidence linked to controls and requirements, tasks and reminders.
+| Reference feature | Status |
+|---|---|
+| Asset management | Done |
+| Risk assessments | Done (configurable matrix, scenarios, current and residual ratings, heat maps, treatment) |
+| Compliance management, multiple frameworks | Done (ISO/IEC 27001:2022 and SCF importers, mappings, workbench, hints) |
+| Frameworks customisation | Done (derive, edit, nest, weights, project file export for open content) |
+| Evidence and document management | Done (files and links, linked to controls and requirements) |
+| Applied controls | Done |
+| Tasks and reminders | Done (recurrence, email reminders through a daily command) |
+| NIST CSF 2.0 | Waiting for the official data file (see docs/frameworks.md) |
 
-Framework content comes from openly licensed sources, with each licence recorded in this repository.
+Open items carried forward: an in-app role editor, custom field definition screens, TOTP multi-factor authentication, automated local backup, browser tests inside CI, and names instead of identifiers in history entries.
 
 ## Phase 2: Extended modules and reporting basics
 

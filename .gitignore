@@ -1,2 +1,7 @@
 .DS_Store
 *.log
+
+# Licensed or no-derivatives framework sources stay on your own machine.
+/local-frameworks/
+*.xlsx
+*.pdf

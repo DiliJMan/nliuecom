@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "apps.risk",
     "apps.compliance",
     "apps.tasks",
+    "apps.dashboard",
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,13 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "0.1.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],
+    "ENUM_NAME_OVERRIDES": {
+        "ControlStatusEnum": "apps.controls.models.AppliedControl.Status",
+        "TaskStatusEnum": "apps.tasks.models.Task.Status",
+        "AssessmentStatusEnum": "apps.risk.models.RiskAssessment.Status",
+        "RequirementStatusEnum": "apps.compliance.models.RequirementAssessment.Status",
+        "RequirementResultEnum": "apps.compliance.models.RequirementAssessment.Result",
+    },
 }
 
 # Reminder emails. Messages are printed to the console until an SMTP server is configured.

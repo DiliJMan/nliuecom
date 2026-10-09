@@ -5,6 +5,7 @@
     python scripts/run.py dev                              # API on :8000, web app on :5173 (watching files)
     python scripts/run.py serve                            # built web app, no file watching
     python scripts/run.py test                             # backend tests, lint, frontend checks
+    python scripts/run.py manage <command> [options]       # any Django management command
 """
 
 from __future__ import annotations
@@ -121,6 +122,12 @@ def serve(args: argparse.Namespace) -> None:
     _wait_and_stop(processes)
 
 
+def manage_command(args: argparse.Namespace) -> None:
+    """Run any Django management command with the project's own environment."""
+    ensure_backend_env()
+    manage(*args.arguments)
+
+
 def test(_: argparse.Namespace) -> None:
     ensure_backend_env()
     run([str(VENV_PYTHON), "-m", "ruff", "check", "."], BACKEND)
@@ -140,6 +147,9 @@ def main() -> None:
     serve_parser.add_argument("--port", type=int, default=5173)
     serve_parser.set_defaults(handler=serve)
     commands.add_parser("test").set_defaults(handler=test)
+    manage_parser = commands.add_parser("manage", help="run a Django management command")
+    manage_parser.add_argument("arguments", nargs=argparse.REMAINDER)
+    manage_parser.set_defaults(handler=manage_command)
     args = parser.parse_args()
     args.handler(args)
 

@@ -20,6 +20,378 @@ paths:
               schema:
                 $ref: '#/components/schemas/About'
           description: ''
+  /api/applied-controls/:
+    get:
+      operationId: applied_controls_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - applied-controls
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAppliedControlList'
+          description: ''
+    post:
+      operationId: applied_controls_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - applied-controls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppliedControl'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AppliedControl'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AppliedControl'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppliedControl'
+          description: ''
+  /api/applied-controls/{id}/:
+    get:
+      operationId: applied_controls_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this applied control.
+        required: true
+      tags:
+      - applied-controls
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppliedControl'
+          description: ''
+    put:
+      operationId: applied_controls_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this applied control.
+        required: true
+      tags:
+      - applied-controls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppliedControl'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AppliedControl'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AppliedControl'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppliedControl'
+          description: ''
+    patch:
+      operationId: applied_controls_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this applied control.
+        required: true
+      tags:
+      - applied-controls
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAppliedControl'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAppliedControl'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAppliedControl'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppliedControl'
+          description: ''
+    delete:
+      operationId: applied_controls_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this applied control.
+        required: true
+      tags:
+      - applied-controls
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/assets/:
+    get:
+      operationId: assets_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - assets
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAssetList'
+          description: ''
+    post:
+      operationId: assets_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Asset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Asset'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: ''
+  /api/assets/{id}/:
+    get:
+      operationId: assets_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this asset.
+        required: true
+      tags:
+      - assets
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: ''
+    put:
+      operationId: assets_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this asset.
+        required: true
+      tags:
+      - assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Asset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Asset'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: ''
+    patch:
+      operationId: assets_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this asset.
+        required: true
+      tags:
+      - assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAsset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAsset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAsset'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: ''
+    delete:
+      operationId: assets_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this asset.
+        required: true
+      tags:
+      - assets
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/attachments/:
     get:
       operationId: attachments_list
@@ -322,6 +694,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/Csrf'
           description: ''
+  /api/auth/directory/:
+    get:
+      operationId: auth_directory_list
+      description: |-
+        Names and addresses of active users, for owner and assignee pickers.
+
+        Open to anyone who holds a role (or is an administrator), so a person with no access yet
+        cannot enumerate colleagues.
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DirectoryEntry'
+          description: ''
   /api/auth/login/:
     post:
       operationId: auth_login_create
@@ -395,6 +788,232 @@ paths:
       - cookieAuth: []
       responses:
         '204':
+          description: No response body
+  /api/compliance-assessments/:
+    get:
+      operationId: compliance_assessments_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - compliance-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedComplianceAssessmentList'
+          description: ''
+    post:
+      operationId: compliance_assessments_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - compliance-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ComplianceAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ComplianceAssessment'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceAssessment'
+          description: ''
+  /api/compliance-assessments/{id}/:
+    get:
+      operationId: compliance_assessments_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this compliance assessment.
+        required: true
+      tags:
+      - compliance-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceAssessment'
+          description: ''
+    put:
+      operationId: compliance_assessments_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this compliance assessment.
+        required: true
+      tags:
+      - compliance-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ComplianceAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ComplianceAssessment'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceAssessment'
+          description: ''
+    patch:
+      operationId: compliance_assessments_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this compliance assessment.
+        required: true
+      tags:
+      - compliance-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedComplianceAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedComplianceAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedComplianceAssessment'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComplianceAssessment'
+          description: ''
+    delete:
+      operationId: compliance_assessments_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this compliance assessment.
+        required: true
+      tags:
+      - compliance-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/compliance-assessments/{id}/suggestions/:
+    get:
+      operationId: compliance_assessments_suggestions_retrieve
+      description: Results from another assessment that map onto requirements not
+        yet assessed here.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this compliance assessment.
+        required: true
+      tags:
+      - compliance-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/compliance-assessments/{id}/workbench/:
+    get:
+      operationId: compliance_assessments_workbench_retrieve
+      description: Every requirement of the framework, with this assessment's answer
+        where one exists.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this compliance assessment.
+        required: true
+      tags:
+      - compliance-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
           description: No response body
   /api/custom-fields/:
     get:
@@ -564,6 +1183,21 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/dashboard/:
+    get:
+      operationId: dashboard_retrieve
+      description: Headline numbers, limited to the domains the caller can see.
+      tags:
+      - dashboard
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+          description: ''
   /api/domains/:
     get:
       operationId: domains_list
@@ -794,6 +1428,500 @@ paths:
               schema:
                 $ref: '#/components/schemas/Domain'
           description: ''
+  /api/evidence/:
+    get:
+      operationId: evidence_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - evidence
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEvidenceList'
+          description: ''
+    post:
+      operationId: evidence_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - evidence
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+          description: ''
+  /api/evidence/{id}/:
+    get:
+      operationId: evidence_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this evidence.
+        required: true
+      tags:
+      - evidence
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+          description: ''
+    put:
+      operationId: evidence_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this evidence.
+        required: true
+      tags:
+      - evidence
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Evidence'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+          description: ''
+    patch:
+      operationId: evidence_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this evidence.
+        required: true
+      tags:
+      - evidence
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEvidence'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEvidence'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEvidence'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Evidence'
+          description: ''
+    delete:
+      operationId: evidence_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this evidence.
+        required: true
+      tags:
+      - evidence
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/frameworks/:
+    get:
+      operationId: frameworks_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - frameworks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedFrameworkList'
+          description: ''
+    post:
+      operationId: frameworks_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - frameworks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Framework'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Framework'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Framework'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Framework'
+          description: ''
+  /api/frameworks/{id}/:
+    get:
+      operationId: frameworks_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Framework'
+          description: ''
+    put:
+      operationId: frameworks_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Framework'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Framework'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Framework'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Framework'
+          description: ''
+    patch:
+      operationId: frameworks_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedFramework'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedFramework'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedFramework'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Framework'
+          description: ''
+    delete:
+      operationId: frameworks_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/frameworks/{id}/derive/:
+    post:
+      operationId: frameworks_derive_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Derive'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Derive'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Derive'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Framework'
+          description: ''
+  /api/frameworks/{id}/export/:
+    get:
+      operationId: frameworks_export_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/frameworks/{id}/nodes/:
+    get:
+      operationId: frameworks_nodes_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this framework.
+        required: true
+      tags:
+      - frameworks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RequirementNode'
+          description: ''
+  /api/frameworks/import/:
+    post:
+      operationId: frameworks_import_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - frameworks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Import'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Import'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Import'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Framework'
+          description: ''
   /api/object-types/:
     get:
       operationId: object_types_list
@@ -812,6 +1940,954 @@ paths:
                 items:
                   $ref: '#/components/schemas/ObjectType'
           description: ''
+  /api/requirement-assessments/:
+    get:
+      operationId: requirement_assessments_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - requirement-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRequirementAssessmentList'
+          description: ''
+  /api/requirement-assessments/{id}/:
+    get:
+      operationId: requirement_assessments_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement assessment.
+        required: true
+      tags:
+      - requirement-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementAssessment'
+          description: ''
+    patch:
+      operationId: requirement_assessments_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement assessment.
+        required: true
+      tags:
+      - requirement-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRequirementAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRequirementAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRequirementAssessment'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementAssessment'
+          description: ''
+  /api/requirement-mappings/:
+    get:
+      operationId: requirement_mappings_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - requirement-mappings
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRequirementMappingList'
+          description: ''
+  /api/requirement-mappings/{id}/:
+    get:
+      operationId: requirement_mappings_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement mapping.
+        required: true
+      tags:
+      - requirement-mappings
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementMapping'
+          description: ''
+  /api/requirement-nodes/:
+    get:
+      operationId: requirement_nodes_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - requirement-nodes
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRequirementNodeList'
+          description: ''
+    post:
+      operationId: requirement_nodes_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - requirement-nodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequirementNode'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RequirementNode'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RequirementNode'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementNode'
+          description: ''
+  /api/requirement-nodes/{id}/:
+    get:
+      operationId: requirement_nodes_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement node.
+        required: true
+      tags:
+      - requirement-nodes
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementNode'
+          description: ''
+    put:
+      operationId: requirement_nodes_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement node.
+        required: true
+      tags:
+      - requirement-nodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequirementNode'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RequirementNode'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RequirementNode'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementNode'
+          description: ''
+    patch:
+      operationId: requirement_nodes_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement node.
+        required: true
+      tags:
+      - requirement-nodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRequirementNode'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRequirementNode'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRequirementNode'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementNode'
+          description: ''
+    delete:
+      operationId: requirement_nodes_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement node.
+        required: true
+      tags:
+      - requirement-nodes
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/requirement-nodes/{id}/mappings/:
+    get:
+      operationId: requirement_nodes_mappings_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this requirement node.
+        required: true
+      tags:
+      - requirement-nodes
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RequirementMapping'
+          description: ''
+  /api/risk-assessments/:
+    get:
+      operationId: risk_assessments_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - risk-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRiskAssessmentList'
+          description: ''
+    post:
+      operationId: risk_assessments_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - risk-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskAssessment'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAssessment'
+          description: ''
+  /api/risk-assessments/{id}/:
+    get:
+      operationId: risk_assessments_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk assessment.
+        required: true
+      tags:
+      - risk-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAssessment'
+          description: ''
+    put:
+      operationId: risk_assessments_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk assessment.
+        required: true
+      tags:
+      - risk-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskAssessment'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAssessment'
+          description: ''
+    patch:
+      operationId: risk_assessments_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk assessment.
+        required: true
+      tags:
+      - risk-assessments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskAssessment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskAssessment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskAssessment'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAssessment'
+          description: ''
+    delete:
+      operationId: risk_assessments_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk assessment.
+        required: true
+      tags:
+      - risk-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/risk-assessments/{id}/heatmap/:
+    get:
+      operationId: risk_assessments_heatmap_retrieve
+      description: How many scenarios sit in each matrix cell, for current and residual
+        ratings.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk assessment.
+        required: true
+      tags:
+      - risk-assessments
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/risk-matrices/:
+    get:
+      operationId: risk_matrices_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - risk-matrices
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRiskMatrixList'
+          description: ''
+    post:
+      operationId: risk_matrices_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - risk-matrices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskMatrix'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskMatrix'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskMatrix'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskMatrix'
+          description: ''
+  /api/risk-matrices/{id}/:
+    get:
+      operationId: risk_matrices_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk matrix.
+        required: true
+      tags:
+      - risk-matrices
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskMatrix'
+          description: ''
+    put:
+      operationId: risk_matrices_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk matrix.
+        required: true
+      tags:
+      - risk-matrices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskMatrix'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskMatrix'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskMatrix'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskMatrix'
+          description: ''
+    patch:
+      operationId: risk_matrices_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk matrix.
+        required: true
+      tags:
+      - risk-matrices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskMatrix'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskMatrix'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskMatrix'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskMatrix'
+          description: ''
+    delete:
+      operationId: risk_matrices_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk matrix.
+        required: true
+      tags:
+      - risk-matrices
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/risk-scenarios/:
+    get:
+      operationId: risk_scenarios_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - risk-scenarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRiskScenarioList'
+          description: ''
+    post:
+      operationId: risk_scenarios_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - risk-scenarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskScenario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskScenario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskScenario'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskScenario'
+          description: ''
+  /api/risk-scenarios/{id}/:
+    get:
+      operationId: risk_scenarios_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk scenario.
+        required: true
+      tags:
+      - risk-scenarios
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskScenario'
+          description: ''
+    put:
+      operationId: risk_scenarios_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk scenario.
+        required: true
+      tags:
+      - risk-scenarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskScenario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskScenario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskScenario'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskScenario'
+          description: ''
+    patch:
+      operationId: risk_scenarios_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk scenario.
+        required: true
+      tags:
+      - risk-scenarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskScenario'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskScenario'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRiskScenario'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskScenario'
+          description: ''
+    delete:
+      operationId: risk_scenarios_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this risk scenario.
+        required: true
+      tags:
+      - risk-scenarios
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/role-assignments/:
     get:
       operationId: role_assignments_list
@@ -1109,6 +3185,219 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/tasks/:
+    get:
+      operationId: tasks_list
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - tasks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTaskList'
+          description: ''
+    post:
+      operationId: tasks_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+  /api/tasks/{id}/:
+    get:
+      operationId: tasks_retrieve
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this task.
+        required: true
+      tags:
+      - tasks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    put:
+      operationId: tasks_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this task.
+        required: true
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    patch:
+      operationId: tasks_partial_update
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this task.
+        required: true
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    delete:
+      operationId: tasks_destroy
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this task.
+        required: true
+      tags:
+      - tasks
+      security:
+      - cookieAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/tasks/{id}/complete/:
+    post:
+      operationId: tasks_complete_create
+      description: |-
+        A model viewset whose rows and writes follow the user's domain-scoped roles.
+
+        Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+        the model to its domain. Set it to None for objects that live outside any domain.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this task.
+        required: true
+      tags:
+      - tasks
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
   /api/user-groups/:
     get:
       operationId: user_groups_list
@@ -1519,6 +3808,181 @@ components:
         * `login_failed` - Login Failed
         * `access` - Access
         * `other` - Other
+    AppliedControl:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        ref_id:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        status:
+          $ref: '#/components/schemas/ControlStatusEnum'
+        category:
+          oneOf:
+          - $ref: '#/components/schemas/CategoryEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        priority:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        effort:
+          oneOf:
+          - $ref: '#/components/schemas/EffortEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        control_impact:
+          type: integer
+          maximum: 5
+          minimum: 1
+          nullable: true
+        eta:
+          type: string
+          format: date
+          nullable: true
+        expiry_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        reference_node:
+          type: string
+          format: uuid
+          nullable: true
+        reference_node_ref:
+          type: string
+          readOnly: true
+        link:
+          oneOf:
+          - type: string
+            format: uri
+            maxLength: 500
+          - type: string
+            maxLength: 0
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - domain
+      - id
+      - name
+      - reference_node_ref
+      - updated_at
+    AssessmentStatusEnum:
+      enum:
+      - planned
+      - in_progress
+      - in_review
+      - done
+      type: string
+      description: |-
+        * `planned` - Planned
+        * `in_progress` - In progress
+        * `in_review` - In review
+        * `done` - Done
+    Asset:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        ref_id:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        depends_on:
+          type: array
+          items:
+            type: string
+            format: uuid
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        business_value:
+          type: string
+          maxLength: 300
+        confidentiality:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        integrity:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        availability:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        link:
+          oneOf:
+          - type: string
+            format: uri
+            maxLength: 500
+          - type: string
+            maxLength: 0
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - domain
+      - id
+      - name
+      - updated_at
     Attachment:
       type: object
       properties:
@@ -1633,6 +4097,106 @@ components:
       - object_type
       - prev_hash
       - timestamp
+    BlankEnum:
+      enum:
+      - ''
+    CategoryEnum:
+      enum:
+      - policy
+      - process
+      - technical
+      - physical
+      - procedure
+      type: string
+      description: |-
+        * `policy` - Policy
+        * `process` - Process
+        * `technical` - Technical
+        * `physical` - Physical
+        * `procedure` - Procedure
+    ComplianceAssessment:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        framework:
+          type: string
+          format: uuid
+        framework_name:
+          type: string
+          readOnly: true
+        status:
+          $ref: '#/components/schemas/AssessmentStatusEnum'
+        version:
+          type: string
+          maxLength: 50
+        eta:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        summary:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - domain
+      - framework
+      - framework_name
+      - id
+      - name
+      - summary
+      - updated_at
+    ControlStatusEnum:
+      enum:
+      - to_do
+      - planned
+      - in_progress
+      - active
+      - on_hold
+      - deprecated
+      type: string
+      description: |-
+        * `to_do` - To do
+        * `planned` - Planned
+        * `in_progress` - In progress
+        * `active` - Active
+        * `on_hold` - On hold
+        * `deprecated` - Deprecated
     Csrf:
       type: object
       properties:
@@ -1693,6 +4257,65 @@ components:
       - label
       - object_type
       - updated_at
+    Dashboard:
+      type: object
+      properties:
+        assets:
+          type: integer
+        frameworks:
+          type: integer
+        controls:
+          type: object
+          additionalProperties: {}
+        risk:
+          type: object
+          additionalProperties: {}
+        compliance:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+        tasks:
+          type: object
+          additionalProperties: {}
+      required:
+      - assets
+      - compliance
+      - controls
+      - frameworks
+      - risk
+      - tasks
+    Derive:
+      type: object
+      properties:
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 300
+        slug:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - domain
+      - name
+    DirectoryEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+      required:
+      - email
+      - id
+      - name
     Domain:
       type: object
       description: |-
@@ -1711,7 +4334,7 @@ components:
         description:
           type: string
         kind:
-          $ref: '#/components/schemas/KindEnum'
+          $ref: '#/components/schemas/DomainKindEnum'
         parent:
           type: string
           format: uuid
@@ -1740,6 +4363,97 @@ components:
       - name
       - path
       - updated_at
+    DomainKindEnum:
+      enum:
+      - organisation
+      - subsidiary
+      - business_unit
+      - entity
+      - team
+      - other
+      type: string
+      description: |-
+        * `organisation` - Organisation
+        * `subsidiary` - Subsidiary
+        * `business_unit` - Business unit
+        * `entity` - Entity
+        * `team` - Team
+        * `other` - Other
+    EffortEnum:
+      enum:
+      - xs
+      - s
+      - m
+      - l
+      - xl
+      type: string
+      description: |-
+        * `xs` - Extra small
+        * `s` - Small
+        * `m` - Medium
+        * `l` - Large
+        * `xl` - Extra large
+    Evidence:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        attachment:
+          type: string
+          format: uuid
+          nullable: true
+        attachment_name:
+          type: string
+          readOnly: true
+        url:
+          oneOf:
+          - type: string
+            format: uri
+            maxLength: 500
+          - type: string
+            maxLength: 0
+        valid_until:
+          type: string
+          format: date
+          nullable: true
+        applied_controls:
+          type: array
+          items:
+            type: string
+            format: uuid
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - attachment_name
+      - created_at
+      - domain
+      - id
+      - name
+      - updated_at
     FieldTypeEnum:
       enum:
       - text
@@ -1756,6 +4470,80 @@ components:
         * `date` - Date
         * `choice` - Single choice
         * `multi_choice` - Multiple choice
+    Framework:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        slug:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          maxLength: 300
+        version:
+          type: string
+          maxLength: 50
+        provider:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        domain:
+          type: string
+          format: uuid
+          nullable: true
+        derived_from:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+        locked:
+          type: boolean
+          readOnly: true
+        redistributable:
+          type: boolean
+          readOnly: true
+        licence_note:
+          type: string
+          readOnly: true
+        attribution:
+          type: string
+          readOnly: true
+        source:
+          type: string
+          readOnly: true
+        node_count:
+          type: integer
+          readOnly: true
+        assessable_count:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - assessable_count
+      - attribution
+      - created_at
+      - derived_from
+      - id
+      - licence_note
+      - locked
+      - name
+      - node_count
+      - redistributable
+      - slug
+      - source
+      - updated_at
     Grant:
       type: object
       properties:
@@ -1783,22 +4571,35 @@ components:
       - id
       - role
       - role_name
-    KindEnum:
+    Import:
+      type: object
+      properties:
+        kind:
+          $ref: '#/components/schemas/ImportKindEnum'
+        file:
+          type: string
+          format: uri
+          writeOnly: true
+        replace:
+          type: boolean
+          default: false
+        domain:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+      - file
+      - kind
+    ImportKindEnum:
       enum:
-      - organisation
-      - subsidiary
-      - business_unit
-      - entity
-      - team
-      - other
+      - scf
+      - iso27001
+      - project
       type: string
       description: |-
-        * `organisation` - Organisation
-        * `subsidiary` - Subsidiary
-        * `business_unit` - Business unit
-        * `entity` - Entity
-        * `team` - Team
-        * `other` - Other
+        * `scf` - scf
+        * `iso27001` - iso27001
+        * `project` - project
     Login:
       type: object
       properties:
@@ -1839,6 +4640,32 @@ components:
       - id
       - is_superuser
       - last_name
+    MatrixLevel:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 60
+        colour:
+          type: string
+          maxLength: 7
+        description:
+          type: string
+          maxLength: 300
+      required:
+      - colour
+      - name
+    MatrixStep:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 60
+        description:
+          type: string
+          maxLength: 300
+      required:
+      - name
     Me:
       type: object
       properties:
@@ -1885,6 +4712,52 @@ components:
       - key
       - label
       - supports_custom_fields
+    PaginatedAppliedControlList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppliedControl'
+    PaginatedAssetList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
     PaginatedAttachmentList:
       type: object
       required:
@@ -1931,6 +4804,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AuditEvent'
+    PaginatedComplianceAssessmentList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComplianceAssessment'
     PaginatedCustomFieldDefinitionList:
       type: object
       required:
@@ -1977,6 +4873,190 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Domain'
+    PaginatedEvidenceList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Evidence'
+    PaginatedFrameworkList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Framework'
+    PaginatedRequirementAssessmentList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequirementAssessment'
+    PaginatedRequirementMappingList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequirementMapping'
+    PaginatedRequirementNodeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequirementNode'
+    PaginatedRiskAssessmentList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskAssessment'
+    PaginatedRiskMatrixList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskMatrix'
+    PaginatedRiskScenarioList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskScenario'
     PaginatedRoleAssignmentList:
       type: object
       required:
@@ -2023,6 +5103,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Role'
+    PaginatedTaskList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
     PaginatedUserGroupList:
       type: object
       required:
@@ -2079,6 +5182,156 @@ components:
       required:
       - current_password
       - new_password
+    PatchedAppliedControl:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        ref_id:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        status:
+          $ref: '#/components/schemas/ControlStatusEnum'
+        category:
+          oneOf:
+          - $ref: '#/components/schemas/CategoryEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        priority:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        effort:
+          oneOf:
+          - $ref: '#/components/schemas/EffortEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        control_impact:
+          type: integer
+          maximum: 5
+          minimum: 1
+          nullable: true
+        eta:
+          type: string
+          format: date
+          nullable: true
+        expiry_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        reference_node:
+          type: string
+          format: uuid
+          nullable: true
+        reference_node_ref:
+          type: string
+          readOnly: true
+        link:
+          oneOf:
+          - type: string
+            format: uri
+            maxLength: 500
+          - type: string
+            maxLength: 0
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedAsset:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        ref_id:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        depends_on:
+          type: array
+          items:
+            type: string
+            format: uuid
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        business_value:
+          type: string
+          maxLength: 300
+        confidentiality:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        integrity:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        availability:
+          type: integer
+          maximum: 4
+          minimum: 1
+          nullable: true
+        link:
+          oneOf:
+          - type: string
+            format: uri
+            maxLength: 500
+          - type: string
+            maxLength: 0
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
     PatchedAttachment:
       type: object
       properties:
@@ -2120,6 +5373,64 @@ components:
           readOnly: true
           nullable: true
         created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedComplianceAssessment:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        framework:
+          type: string
+          format: uuid
+        framework_name:
+          type: string
+          readOnly: true
+        status:
+          $ref: '#/components/schemas/AssessmentStatusEnum'
+        version:
+          type: string
+          maxLength: 50
+        eta:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        summary:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
           type: string
           format: date-time
           readOnly: true
@@ -2186,7 +5497,7 @@ components:
         description:
           type: string
         kind:
-          $ref: '#/components/schemas/KindEnum'
+          $ref: '#/components/schemas/DomainKindEnum'
         parent:
           type: string
           format: uuid
@@ -2197,6 +5508,382 @@ components:
         depth:
           type: integer
           readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedEvidence:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        attachment:
+          type: string
+          format: uuid
+          nullable: true
+        attachment_name:
+          type: string
+          readOnly: true
+        url:
+          oneOf:
+          - type: string
+            format: uri
+            maxLength: 500
+          - type: string
+            maxLength: 0
+        valid_until:
+          type: string
+          format: date
+          nullable: true
+        applied_controls:
+          type: array
+          items:
+            type: string
+            format: uuid
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedFramework:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        slug:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          maxLength: 300
+        version:
+          type: string
+          maxLength: 50
+        provider:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        domain:
+          type: string
+          format: uuid
+          nullable: true
+        derived_from:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+        locked:
+          type: boolean
+          readOnly: true
+        redistributable:
+          type: boolean
+          readOnly: true
+        licence_note:
+          type: string
+          readOnly: true
+        attribution:
+          type: string
+          readOnly: true
+        source:
+          type: string
+          readOnly: true
+        node_count:
+          type: integer
+          readOnly: true
+        assessable_count:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedRequirementAssessment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        compliance_assessment:
+          type: string
+          format: uuid
+          readOnly: true
+        requirement:
+          type: string
+          format: uuid
+          readOnly: true
+        ref_id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        description:
+          type: string
+          readOnly: true
+        result:
+          $ref: '#/components/schemas/RequirementResultEnum'
+        status:
+          $ref: '#/components/schemas/RequirementStatusEnum'
+        observation:
+          type: string
+        applied_controls:
+          type: array
+          items:
+            type: string
+            format: uuid
+        evidence:
+          type: array
+          items:
+            type: string
+            format: uuid
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedRequirementNode:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        framework:
+          type: string
+          format: uuid
+        ref_id:
+          type: string
+          maxLength: 100
+        name:
+          type: string
+          maxLength: 500
+        description:
+          type: string
+        parent:
+          type: string
+          format: uuid
+          nullable: true
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        assessable:
+          type: boolean
+        weight:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        extra:
+          readOnly: true
+    PatchedRiskAssessment:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        matrix:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AssessmentStatusEnum'
+        version:
+          type: string
+          maxLength: 50
+        eta:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        scenario_count:
+          type: integer
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedRiskMatrix:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
+        description:
+          type: string
+        probability:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatrixStep'
+        impact:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatrixStep'
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatrixLevel'
+        grid:
+          type: array
+          items:
+            type: array
+            items:
+              type: integer
+        builtin:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedRiskScenario:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        risk_assessment:
+          type: string
+          format: uuid
+        ref_id:
+          type: string
+          maxLength: 100
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        threats:
+          type: string
+        vulnerabilities:
+          type: string
+        existing_controls:
+          type: string
+        assets:
+          type: array
+          items:
+            type: string
+            format: uuid
+        applied_controls:
+          type: array
+          items:
+            type: string
+            format: uuid
+        current_probability:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        current_impact:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        current_level:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        residual_probability:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        residual_impact:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        residual_level:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        treatment:
+          $ref: '#/components/schemas/TreatmentEnum'
+        justification:
+          type: string
+        owner:
+          type: string
+          format: uuid
+          nullable: true
         custom_fields:
           type: object
           additionalProperties: {}
@@ -2227,6 +5914,83 @@ components:
         builtin:
           type: boolean
           readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedTask:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        assignee:
+          type: string
+          format: uuid
+          nullable: true
+        assignee_email:
+          type: string
+          readOnly: true
+        status:
+          $ref: '#/components/schemas/TaskStatusEnum'
+        priority:
+          type: integer
+          maximum: 4
+          minimum: 1
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        overdue:
+          type: boolean
+          readOnly: true
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceEnum'
+        recurrence_interval:
+          type: integer
+          maximum: 365
+          minimum: 1
+        reminder_days_before:
+          type: integer
+          maximum: 60
+          minimum: 0
+        completed_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        next_task:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+        linked_object_type:
+          type: string
+          maxLength: 100
+        linked_object_id:
+          type: string
+          maxLength: 64
+        custom_fields:
+          type: object
+          additionalProperties: {}
         created_at:
           type: string
           format: date-time
@@ -2292,6 +6056,414 @@ components:
           type: string
           format: date-time
           readOnly: true
+    RecurrenceEnum:
+      enum:
+      - none
+      - daily
+      - weekly
+      - monthly
+      - yearly
+      type: string
+      description: |-
+        * `none` - Does not repeat
+        * `daily` - Daily
+        * `weekly` - Weekly
+        * `monthly` - Monthly
+        * `yearly` - Yearly
+    RelationshipEnum:
+      enum:
+      - equal
+      - subset
+      - superset
+      - intersects
+      - related
+      type: string
+      description: |-
+        * `equal` - Equal
+        * `subset` - Subset of
+        * `superset` - Superset of
+        * `intersects` - Intersects with
+        * `related` - Related
+    RequirementAssessment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        compliance_assessment:
+          type: string
+          format: uuid
+          readOnly: true
+        requirement:
+          type: string
+          format: uuid
+          readOnly: true
+        ref_id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        description:
+          type: string
+          readOnly: true
+        result:
+          $ref: '#/components/schemas/RequirementResultEnum'
+        status:
+          $ref: '#/components/schemas/RequirementStatusEnum'
+        observation:
+          type: string
+        applied_controls:
+          type: array
+          items:
+            type: string
+            format: uuid
+        evidence:
+          type: array
+          items:
+            type: string
+            format: uuid
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - compliance_assessment
+      - description
+      - id
+      - name
+      - ref_id
+      - requirement
+      - updated_at
+    RequirementMapping:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        source:
+          type: string
+          format: uuid
+          readOnly: true
+        source_ref:
+          type: string
+          readOnly: true
+        source_name:
+          type: string
+          readOnly: true
+        source_framework:
+          type: string
+          readOnly: true
+        target:
+          type: string
+          format: uuid
+          readOnly: true
+        target_ref:
+          type: string
+          readOnly: true
+        target_name:
+          type: string
+          readOnly: true
+        target_framework:
+          type: string
+          readOnly: true
+        relationship:
+          allOf:
+          - $ref: '#/components/schemas/RelationshipEnum'
+          readOnly: true
+        origin:
+          type: string
+          readOnly: true
+      required:
+      - id
+      - origin
+      - relationship
+      - source
+      - source_framework
+      - source_name
+      - source_ref
+      - target
+      - target_framework
+      - target_name
+      - target_ref
+    RequirementNode:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        framework:
+          type: string
+          format: uuid
+        ref_id:
+          type: string
+          maxLength: 100
+        name:
+          type: string
+          maxLength: 500
+        description:
+          type: string
+        parent:
+          type: string
+          format: uuid
+          nullable: true
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        assessable:
+          type: boolean
+        weight:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        extra:
+          readOnly: true
+      required:
+      - extra
+      - framework
+      - id
+      - name
+      - ref_id
+    RequirementResultEnum:
+      enum:
+      - not_assessed
+      - compliant
+      - partially_compliant
+      - non_compliant
+      - not_applicable
+      type: string
+      description: |-
+        * `not_assessed` - Not assessed
+        * `compliant` - Compliant
+        * `partially_compliant` - Partially compliant
+        * `non_compliant` - Non-compliant
+        * `not_applicable` - Not applicable
+    RequirementStatusEnum:
+      enum:
+      - to_do
+      - in_progress
+      - in_review
+      - done
+      type: string
+      description: |-
+        * `to_do` - To do
+        * `in_progress` - In progress
+        * `in_review` - In review
+        * `done` - Done
+    RiskAssessment:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        matrix:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/AssessmentStatusEnum'
+        version:
+          type: string
+          maxLength: 50
+        eta:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        scenario_count:
+          type: integer
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - domain
+      - id
+      - matrix
+      - name
+      - scenario_count
+      - updated_at
+    RiskMatrix:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
+        description:
+          type: string
+        probability:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatrixStep'
+        impact:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatrixStep'
+        levels:
+          type: array
+          items:
+            $ref: '#/components/schemas/MatrixLevel'
+        grid:
+          type: array
+          items:
+            type: array
+            items:
+              type: integer
+        builtin:
+          type: boolean
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - builtin
+      - created_at
+      - grid
+      - id
+      - impact
+      - levels
+      - name
+      - probability
+      - updated_at
+    RiskScenario:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        risk_assessment:
+          type: string
+          format: uuid
+        ref_id:
+          type: string
+          maxLength: 100
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        threats:
+          type: string
+        vulnerabilities:
+          type: string
+        existing_controls:
+          type: string
+        assets:
+          type: array
+          items:
+            type: string
+            format: uuid
+        applied_controls:
+          type: array
+          items:
+            type: string
+            format: uuid
+        current_probability:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        current_impact:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        current_level:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        residual_probability:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        residual_impact:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+        residual_level:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        treatment:
+          $ref: '#/components/schemas/TreatmentEnum'
+        justification:
+          type: string
+        owner:
+          type: string
+          format: uuid
+          nullable: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - current_level
+      - id
+      - name
+      - residual_level
+      - risk_assessment
+      - updated_at
     Role:
       type: object
       properties:
@@ -2373,6 +6545,127 @@ components:
       - role
       - role_name
       - user_email
+    Task:
+      type: object
+      description: |-
+        Base for objects that live in a domain.
+
+        Subclasses name the registry type their custom fields use, and list the relations to check
+        in `link_fields` as {field name: registry key of the target}.
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        domain:
+          type: string
+          format: uuid
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        assignee:
+          type: string
+          format: uuid
+          nullable: true
+        assignee_email:
+          type: string
+          readOnly: true
+        status:
+          $ref: '#/components/schemas/TaskStatusEnum'
+        priority:
+          type: integer
+          maximum: 4
+          minimum: 1
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        overdue:
+          type: boolean
+          readOnly: true
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceEnum'
+        recurrence_interval:
+          type: integer
+          maximum: 365
+          minimum: 1
+        reminder_days_before:
+          type: integer
+          maximum: 60
+          minimum: 0
+        completed_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        next_task:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+        linked_object_type:
+          type: string
+          maxLength: 100
+        linked_object_id:
+          type: string
+          maxLength: 64
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - assignee_email
+      - completed_at
+      - created_at
+      - domain
+      - id
+      - next_task
+      - overdue
+      - title
+      - updated_at
+    TaskStatusEnum:
+      enum:
+      - to_do
+      - in_progress
+      - done
+      - cancelled
+      type: string
+      description: |-
+        * `to_do` - To do
+        * `in_progress` - In progress
+        * `done` - Done
+        * `cancelled` - Cancelled
+    TreatmentEnum:
+      enum:
+      - open
+      - mitigate
+      - accept
+      - avoid
+      - transfer
+      type: string
+      description: |-
+        * `open` - Not decided
+        * `mitigate` - Mitigate
+        * `accept` - Accept
+        * `avoid` - Avoid
+        * `transfer` - Transfer
+    TypeEnum:
+      enum:
+      - primary
+      - support
+      type: string
+      description: |-
+        * `primary` - Primary (process or information)
+        * `support` - Supporting (system, device, site, person)
     User:
       type: object
       properties:

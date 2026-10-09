@@ -21,6 +21,142 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/applied-controls/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["applied_controls_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["applied_controls_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/applied-controls/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["applied_controls_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["applied_controls_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["applied_controls_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["applied_controls_partial_update"];
+        trace?: never;
+    };
+    "/api/assets/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["assets_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["assets_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/assets/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["assets_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["assets_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["assets_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["assets_partial_update"];
+        trace?: never;
+    };
     "/api/attachments/": {
         parameters: {
             query?: never;
@@ -200,6 +336,28 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/auth/directory/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Names and addresses of active users, for owner and assignee pickers.
+         *
+         *     Open to anyone who holds a role (or is an administrator), so a person with no access yet
+         *     cannot enumerate colleagues.
+         */
+        get: operations["auth_directory_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/auth/login/": {
         parameters: {
             query?: never;
@@ -264,6 +422,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/compliance-assessments/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["compliance_assessments_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["compliance_assessments_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/compliance-assessments/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["compliance_assessments_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["compliance_assessments_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["compliance_assessments_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["compliance_assessments_partial_update"];
+        trace?: never;
+    };
+    "/api/compliance-assessments/{id}/suggestions/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Results from another assessment that map onto requirements not yet assessed here. */
+        get: operations["compliance_assessments_suggestions_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/compliance-assessments/{id}/workbench/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Every requirement of the framework, with this assessment's answer where one exists. */
+        get: operations["compliance_assessments_workbench_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/custom-fields/": {
         parameters: {
             query?: never;
@@ -300,6 +560,23 @@ export interface paths {
         head?: never;
         /** @description Any signed-in user may read definitions (forms need them); writes follow domain roles. */
         patch: operations["custom_fields_partial_update"];
+        trace?: never;
+    };
+    "/api/dashboard/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Headline numbers, limited to the domains the caller can see. */
+        get: operations["dashboard_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/api/domains/": {
@@ -412,6 +689,230 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/evidence/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["evidence_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["evidence_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/evidence/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["evidence_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["evidence_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["evidence_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["evidence_partial_update"];
+        trace?: never;
+    };
+    "/api/frameworks/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["frameworks_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["frameworks_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/frameworks/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["frameworks_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["frameworks_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["frameworks_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["frameworks_partial_update"];
+        trace?: never;
+    };
+    "/api/frameworks/{id}/derive/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["frameworks_derive_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/frameworks/{id}/export/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["frameworks_export_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/frameworks/{id}/nodes/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["frameworks_nodes_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/frameworks/import/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["frameworks_import_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/object-types/": {
         parameters: {
             query?: never;
@@ -427,6 +928,411 @@ export interface paths {
         options?: never;
         head?: never;
         patch?: never;
+        trace?: never;
+    };
+    "/api/requirement-assessments/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_assessments_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/requirement-assessments/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_assessments_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["requirement_assessments_partial_update"];
+        trace?: never;
+    };
+    "/api/requirement-mappings/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_mappings_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/requirement-mappings/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_mappings_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/requirement-nodes/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_nodes_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["requirement_nodes_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/requirement-nodes/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_nodes_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["requirement_nodes_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["requirement_nodes_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["requirement_nodes_partial_update"];
+        trace?: never;
+    };
+    "/api/requirement-nodes/{id}/mappings/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["requirement_nodes_mappings_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/risk-assessments/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["risk_assessments_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["risk_assessments_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/risk-assessments/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["risk_assessments_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["risk_assessments_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["risk_assessments_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["risk_assessments_partial_update"];
+        trace?: never;
+    };
+    "/api/risk-assessments/{id}/heatmap/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description How many scenarios sit in each matrix cell, for current and residual ratings. */
+        get: operations["risk_assessments_heatmap_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/risk-matrices/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["risk_matrices_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["risk_matrices_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/risk-matrices/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["risk_matrices_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["risk_matrices_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["risk_matrices_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["risk_matrices_partial_update"];
+        trace?: never;
+    };
+    "/api/risk-scenarios/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["risk_scenarios_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["risk_scenarios_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/risk-scenarios/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["risk_scenarios_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["risk_scenarios_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["risk_scenarios_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["risk_scenarios_partial_update"];
         trace?: never;
     };
     "/api/role-assignments/": {
@@ -551,6 +1457,96 @@ export interface paths {
          *     the model to its domain. Set it to None for objects that live outside any domain.
          */
         patch: operations["roles_partial_update"];
+        trace?: never;
+    };
+    "/api/tasks/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["tasks_list"];
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["tasks_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/tasks/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        get: operations["tasks_retrieve"];
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        put: operations["tasks_update"];
+        post?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        delete: operations["tasks_destroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        patch: operations["tasks_partial_update"];
+        trace?: never;
+    };
+    "/api/tasks/{id}/complete/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description A model viewset whose rows and writes follow the user's domain-scoped roles.
+         *
+         *     Subclasses set `object_type` (registry key) and may set `domain_lookup`, the ORM path from
+         *     the model to its domain. Set it to None for objects that live outside any domain.
+         */
+        post: operations["tasks_complete_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/api/user-groups/": {
@@ -711,6 +1707,82 @@ export interface components {
          * @enum {string}
          */
         ActionEnum: "create" | "update" | "delete" | "login" | "logout" | "login_failed" | "access" | "other";
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        AppliedControl: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            domain: string;
+            name: string;
+            ref_id?: string;
+            description?: string;
+            status?: components["schemas"]["ControlStatusEnum"];
+            category?: components["schemas"]["CategoryEnum"] | components["schemas"]["BlankEnum"];
+            priority?: number | null;
+            effort?: components["schemas"]["EffortEnum"] | components["schemas"]["BlankEnum"];
+            control_impact?: number | null;
+            /** Format: date */
+            eta?: string | null;
+            /** Format: date */
+            expiry_date?: string | null;
+            /** Format: uuid */
+            owner?: string | null;
+            /** Format: uuid */
+            reference_node?: string | null;
+            readonly reference_node_ref: string;
+            link?: string;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        /**
+         * @description * `planned` - Planned
+         *     * `in_progress` - In progress
+         *     * `in_review` - In review
+         *     * `done` - Done
+         * @enum {string}
+         */
+        AssessmentStatusEnum: "planned" | "in_progress" | "in_review" | "done";
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        Asset: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            domain: string;
+            name: string;
+            ref_id?: string;
+            description?: string;
+            type?: components["schemas"]["TypeEnum"];
+            depends_on?: string[];
+            /** Format: uuid */
+            owner?: string | null;
+            business_value?: string;
+            confidentiality?: number | null;
+            integrity?: number | null;
+            availability?: number | null;
+            link?: string;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
         Attachment: {
             /** Format: uuid */
             readonly id: string;
@@ -748,6 +1820,62 @@ export interface components {
             readonly prev_hash: string;
             readonly hash: string;
         };
+        /** @enum {unknown} */
+        BlankEnum: "";
+        /**
+         * @description * `policy` - Policy
+         *     * `process` - Process
+         *     * `technical` - Technical
+         *     * `physical` - Physical
+         *     * `procedure` - Procedure
+         * @enum {string}
+         */
+        CategoryEnum: "policy" | "process" | "technical" | "physical" | "procedure";
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        ComplianceAssessment: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            domain: string;
+            name: string;
+            description?: string;
+            /** Format: uuid */
+            framework: string;
+            readonly framework_name: string;
+            status?: components["schemas"]["AssessmentStatusEnum"];
+            version?: string;
+            /** Format: date */
+            eta?: string | null;
+            /** Format: date */
+            due_date?: string | null;
+            /** Format: uuid */
+            owner?: string | null;
+            readonly summary: {
+                [key: string]: unknown;
+            };
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        /**
+         * @description * `to_do` - To do
+         *     * `planned` - Planned
+         *     * `in_progress` - In progress
+         *     * `active` - Active
+         *     * `on_hold` - On hold
+         *     * `deprecated` - Deprecated
+         * @enum {string}
+         */
+        ControlStatusEnum: "to_do" | "planned" | "in_progress" | "active" | "on_hold" | "deprecated";
         Csrf: {
             csrfToken: string;
         };
@@ -770,6 +1898,35 @@ export interface components {
             /** Format: date-time */
             readonly updated_at: string;
         };
+        Dashboard: {
+            assets: number;
+            frameworks: number;
+            controls: {
+                [key: string]: unknown;
+            };
+            risk: {
+                [key: string]: unknown;
+            };
+            compliance: {
+                [key: string]: unknown;
+            }[];
+            tasks: {
+                [key: string]: unknown;
+            };
+        };
+        Derive: {
+            /** Format: uuid */
+            domain: string;
+            name: string;
+            slug?: string;
+        };
+        DirectoryEntry: {
+            /** Format: uuid */
+            id: string;
+            /** Format: email */
+            email: string;
+            name: string;
+        };
         /**
          * @description Validates the `custom_fields` payload against the definitions that apply to the object.
          *
@@ -781,11 +1938,58 @@ export interface components {
             readonly id: string;
             name: string;
             description?: string;
-            kind?: components["schemas"]["KindEnum"];
+            kind?: components["schemas"]["DomainKindEnum"];
             /** Format: uuid */
             parent?: string | null;
             readonly path: string;
             readonly depth: number;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        /**
+         * @description * `organisation` - Organisation
+         *     * `subsidiary` - Subsidiary
+         *     * `business_unit` - Business unit
+         *     * `entity` - Entity
+         *     * `team` - Team
+         *     * `other` - Other
+         * @enum {string}
+         */
+        DomainKindEnum: "organisation" | "subsidiary" | "business_unit" | "entity" | "team" | "other";
+        /**
+         * @description * `xs` - Extra small
+         *     * `s` - Small
+         *     * `m` - Medium
+         *     * `l` - Large
+         *     * `xl` - Extra large
+         * @enum {string}
+         */
+        EffortEnum: "xs" | "s" | "m" | "l" | "xl";
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        Evidence: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            domain: string;
+            name: string;
+            description?: string;
+            /** Format: uuid */
+            attachment?: string | null;
+            readonly attachment_name: string;
+            url?: string;
+            /** Format: date */
+            valid_until?: string | null;
+            applied_controls?: string[];
             custom_fields?: {
                 [key: string]: unknown;
             };
@@ -804,6 +2008,30 @@ export interface components {
          * @enum {string}
          */
         FieldTypeEnum: "text" | "number" | "boolean" | "date" | "choice" | "multi_choice";
+        Framework: {
+            /** Format: uuid */
+            readonly id: string;
+            slug: string;
+            name: string;
+            version?: string;
+            provider?: string;
+            description?: string;
+            /** Format: uuid */
+            domain?: string | null;
+            /** Format: uuid */
+            readonly derived_from: string | null;
+            readonly locked: boolean;
+            readonly redistributable: boolean;
+            readonly licence_note: string;
+            readonly attribution: string;
+            readonly source: string;
+            readonly node_count: number;
+            readonly assessable_count: number;
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
         Grant: {
             /** Format: uuid */
             readonly id: string;
@@ -815,16 +2043,22 @@ export interface components {
             readonly domain_name: string;
             recursive?: boolean;
         };
+        Import: {
+            kind: components["schemas"]["ImportKindEnum"];
+            /** Format: uri */
+            file: string;
+            /** @default false */
+            replace: boolean;
+            /** Format: uuid */
+            domain?: string | null;
+        };
         /**
-         * @description * `organisation` - Organisation
-         *     * `subsidiary` - Subsidiary
-         *     * `business_unit` - Business unit
-         *     * `entity` - Entity
-         *     * `team` - Team
-         *     * `other` - Other
+         * @description * `scf` - scf
+         *     * `iso27001` - iso27001
+         *     * `project` - project
          * @enum {string}
          */
-        KindEnum: "organisation" | "subsidiary" | "business_unit" | "entity" | "team" | "other";
+        ImportKindEnum: "scf" | "iso27001" | "project";
         Login: {
             /** Format: email */
             email: string;
@@ -841,6 +2075,15 @@ export interface components {
             grants: components["schemas"]["Grant"][];
             csrfToken: string;
         };
+        MatrixLevel: {
+            name: string;
+            colour: string;
+            description?: string;
+        };
+        MatrixStep: {
+            name: string;
+            description?: string;
+        };
         Me: {
             /** Format: uuid */
             readonly id: string;
@@ -856,6 +2099,36 @@ export interface components {
             label: string;
             actions: string[];
             supports_custom_fields: boolean;
+        };
+        PaginatedAppliedControlList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["AppliedControl"][];
+        };
+        PaginatedAssetList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["Asset"][];
         };
         PaginatedAttachmentList: {
             /** @example 123 */
@@ -887,6 +2160,21 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["AuditEvent"][];
         };
+        PaginatedComplianceAssessmentList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["ComplianceAssessment"][];
+        };
         PaginatedCustomFieldDefinitionList: {
             /** @example 123 */
             count: number;
@@ -917,6 +2205,126 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["Domain"][];
         };
+        PaginatedEvidenceList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["Evidence"][];
+        };
+        PaginatedFrameworkList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["Framework"][];
+        };
+        PaginatedRequirementAssessmentList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["RequirementAssessment"][];
+        };
+        PaginatedRequirementMappingList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["RequirementMapping"][];
+        };
+        PaginatedRequirementNodeList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["RequirementNode"][];
+        };
+        PaginatedRiskAssessmentList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["RiskAssessment"][];
+        };
+        PaginatedRiskMatrixList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["RiskMatrix"][];
+        };
+        PaginatedRiskScenarioList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["RiskScenario"][];
+        };
         PaginatedRoleAssignmentList: {
             /** @example 123 */
             count: number;
@@ -946,6 +2354,21 @@ export interface components {
              */
             previous?: string | null;
             results: components["schemas"]["Role"][];
+        };
+        PaginatedTaskList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["Task"][];
         };
         PaginatedUserGroupList: {
             /** @example 123 */
@@ -981,6 +2404,74 @@ export interface components {
             current_password: string;
             new_password: string;
         };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        PatchedAppliedControl: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            domain?: string;
+            name?: string;
+            ref_id?: string;
+            description?: string;
+            status?: components["schemas"]["ControlStatusEnum"];
+            category?: components["schemas"]["CategoryEnum"] | components["schemas"]["BlankEnum"];
+            priority?: number | null;
+            effort?: components["schemas"]["EffortEnum"] | components["schemas"]["BlankEnum"];
+            control_impact?: number | null;
+            /** Format: date */
+            eta?: string | null;
+            /** Format: date */
+            expiry_date?: string | null;
+            /** Format: uuid */
+            owner?: string | null;
+            /** Format: uuid */
+            reference_node?: string | null;
+            readonly reference_node_ref?: string;
+            link?: string;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        PatchedAsset: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            domain?: string;
+            name?: string;
+            ref_id?: string;
+            description?: string;
+            type?: components["schemas"]["TypeEnum"];
+            depends_on?: string[];
+            /** Format: uuid */
+            owner?: string | null;
+            business_value?: string;
+            confidentiality?: number | null;
+            integrity?: number | null;
+            availability?: number | null;
+            link?: string;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
         PatchedAttachment: {
             /** Format: uuid */
             readonly id?: string;
@@ -999,6 +2490,41 @@ export interface components {
             readonly uploaded_by?: string | null;
             /** Format: date-time */
             readonly created_at?: string;
+        };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        PatchedComplianceAssessment: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            domain?: string;
+            name?: string;
+            description?: string;
+            /** Format: uuid */
+            framework?: string;
+            readonly framework_name?: string;
+            status?: components["schemas"]["AssessmentStatusEnum"];
+            version?: string;
+            /** Format: date */
+            eta?: string | null;
+            /** Format: date */
+            due_date?: string | null;
+            /** Format: uuid */
+            owner?: string | null;
+            readonly summary?: {
+                [key: string]: unknown;
+            };
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
         };
         PatchedCustomFieldDefinition: {
             /** Format: uuid */
@@ -1030,11 +2556,184 @@ export interface components {
             readonly id?: string;
             name?: string;
             description?: string;
-            kind?: components["schemas"]["KindEnum"];
+            kind?: components["schemas"]["DomainKindEnum"];
             /** Format: uuid */
             parent?: string | null;
             readonly path?: string;
             readonly depth?: number;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        PatchedEvidence: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            domain?: string;
+            name?: string;
+            description?: string;
+            /** Format: uuid */
+            attachment?: string | null;
+            readonly attachment_name?: string;
+            url?: string;
+            /** Format: date */
+            valid_until?: string | null;
+            applied_controls?: string[];
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        PatchedFramework: {
+            /** Format: uuid */
+            readonly id?: string;
+            slug?: string;
+            name?: string;
+            version?: string;
+            provider?: string;
+            description?: string;
+            /** Format: uuid */
+            domain?: string | null;
+            /** Format: uuid */
+            readonly derived_from?: string | null;
+            readonly locked?: boolean;
+            readonly redistributable?: boolean;
+            readonly licence_note?: string;
+            readonly attribution?: string;
+            readonly source?: string;
+            readonly node_count?: number;
+            readonly assessable_count?: number;
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        PatchedRequirementAssessment: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            readonly compliance_assessment?: string;
+            /** Format: uuid */
+            readonly requirement?: string;
+            readonly ref_id?: string;
+            readonly name?: string;
+            readonly description?: string;
+            result?: components["schemas"]["RequirementResultEnum"];
+            status?: components["schemas"]["RequirementStatusEnum"];
+            observation?: string;
+            applied_controls?: string[];
+            evidence?: string[];
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        PatchedRequirementNode: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            framework?: string;
+            ref_id?: string;
+            name?: string;
+            description?: string;
+            /** Format: uuid */
+            parent?: string | null;
+            /** Format: int64 */
+            order?: number;
+            assessable?: boolean;
+            /** Format: int64 */
+            weight?: number;
+            readonly extra?: unknown;
+        };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        PatchedRiskAssessment: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            domain?: string;
+            name?: string;
+            description?: string;
+            /** Format: uuid */
+            matrix?: string;
+            status?: components["schemas"]["AssessmentStatusEnum"];
+            version?: string;
+            /** Format: date */
+            eta?: string | null;
+            /** Format: date */
+            due_date?: string | null;
+            /** Format: uuid */
+            owner?: string | null;
+            readonly scenario_count?: number;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        PatchedRiskMatrix: {
+            /** Format: uuid */
+            readonly id?: string;
+            name?: string;
+            description?: string;
+            probability?: components["schemas"]["MatrixStep"][];
+            impact?: components["schemas"]["MatrixStep"][];
+            levels?: components["schemas"]["MatrixLevel"][];
+            grid?: number[][];
+            readonly builtin?: boolean;
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        PatchedRiskScenario: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            risk_assessment?: string;
+            ref_id?: string;
+            name?: string;
+            description?: string;
+            threats?: string;
+            vulnerabilities?: string;
+            existing_controls?: string;
+            assets?: string[];
+            applied_controls?: string[];
+            /** Format: int64 */
+            current_probability?: number | null;
+            /** Format: int64 */
+            current_impact?: number | null;
+            readonly current_level?: {
+                [key: string]: unknown;
+            } | null;
+            /** Format: int64 */
+            residual_probability?: number | null;
+            /** Format: int64 */
+            residual_impact?: number | null;
+            readonly residual_level?: {
+                [key: string]: unknown;
+            } | null;
+            treatment?: components["schemas"]["TreatmentEnum"];
+            justification?: string;
+            /** Format: uuid */
+            owner?: string | null;
             custom_fields?: {
                 [key: string]: unknown;
             };
@@ -1050,6 +2749,44 @@ export interface components {
             description?: string;
             permissions?: string[];
             readonly builtin?: boolean;
+            /** Format: date-time */
+            readonly created_at?: string;
+            /** Format: date-time */
+            readonly updated_at?: string;
+        };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        PatchedTask: {
+            /** Format: uuid */
+            readonly id?: string;
+            /** Format: uuid */
+            domain?: string;
+            title?: string;
+            description?: string;
+            /** Format: uuid */
+            assignee?: string | null;
+            readonly assignee_email?: string;
+            status?: components["schemas"]["TaskStatusEnum"];
+            priority?: number;
+            /** Format: date */
+            due_date?: string | null;
+            readonly overdue?: boolean;
+            recurrence?: components["schemas"]["RecurrenceEnum"];
+            recurrence_interval?: number;
+            reminder_days_before?: number;
+            /** Format: date-time */
+            readonly completed_at?: string | null;
+            /** Format: uuid */
+            readonly next_task?: string | null;
+            linked_object_type?: string;
+            linked_object_id?: string;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
             /** Format: date-time */
             readonly created_at?: string;
             /** Format: date-time */
@@ -1080,6 +2817,178 @@ export interface components {
             readonly created_at?: string;
             /** Format: date-time */
             readonly updated_at?: string;
+        };
+        /**
+         * @description * `none` - Does not repeat
+         *     * `daily` - Daily
+         *     * `weekly` - Weekly
+         *     * `monthly` - Monthly
+         *     * `yearly` - Yearly
+         * @enum {string}
+         */
+        RecurrenceEnum: "none" | "daily" | "weekly" | "monthly" | "yearly";
+        /**
+         * @description * `equal` - Equal
+         *     * `subset` - Subset of
+         *     * `superset` - Superset of
+         *     * `intersects` - Intersects with
+         *     * `related` - Related
+         * @enum {string}
+         */
+        RelationshipEnum: "equal" | "subset" | "superset" | "intersects" | "related";
+        RequirementAssessment: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            readonly compliance_assessment: string;
+            /** Format: uuid */
+            readonly requirement: string;
+            readonly ref_id: string;
+            readonly name: string;
+            readonly description: string;
+            result?: components["schemas"]["RequirementResultEnum"];
+            status?: components["schemas"]["RequirementStatusEnum"];
+            observation?: string;
+            applied_controls?: string[];
+            evidence?: string[];
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        RequirementMapping: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            readonly source: string;
+            readonly source_ref: string;
+            readonly source_name: string;
+            readonly source_framework: string;
+            /** Format: uuid */
+            readonly target: string;
+            readonly target_ref: string;
+            readonly target_name: string;
+            readonly target_framework: string;
+            readonly relationship: components["schemas"]["RelationshipEnum"];
+            readonly origin: string;
+        };
+        RequirementNode: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            framework: string;
+            ref_id: string;
+            name: string;
+            description?: string;
+            /** Format: uuid */
+            parent?: string | null;
+            /** Format: int64 */
+            order?: number;
+            assessable?: boolean;
+            /** Format: int64 */
+            weight?: number;
+            readonly extra: unknown;
+        };
+        /**
+         * @description * `not_assessed` - Not assessed
+         *     * `compliant` - Compliant
+         *     * `partially_compliant` - Partially compliant
+         *     * `non_compliant` - Non-compliant
+         *     * `not_applicable` - Not applicable
+         * @enum {string}
+         */
+        RequirementResultEnum: "not_assessed" | "compliant" | "partially_compliant" | "non_compliant" | "not_applicable";
+        /**
+         * @description * `to_do` - To do
+         *     * `in_progress` - In progress
+         *     * `in_review` - In review
+         *     * `done` - Done
+         * @enum {string}
+         */
+        RequirementStatusEnum: "to_do" | "in_progress" | "in_review" | "done";
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        RiskAssessment: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            domain: string;
+            name: string;
+            description?: string;
+            /** Format: uuid */
+            matrix: string;
+            status?: components["schemas"]["AssessmentStatusEnum"];
+            version?: string;
+            /** Format: date */
+            eta?: string | null;
+            /** Format: date */
+            due_date?: string | null;
+            /** Format: uuid */
+            owner?: string | null;
+            readonly scenario_count: number;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        RiskMatrix: {
+            /** Format: uuid */
+            readonly id: string;
+            name: string;
+            description?: string;
+            probability: components["schemas"]["MatrixStep"][];
+            impact: components["schemas"]["MatrixStep"][];
+            levels: components["schemas"]["MatrixLevel"][];
+            grid: number[][];
+            readonly builtin: boolean;
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        RiskScenario: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            risk_assessment: string;
+            ref_id?: string;
+            name: string;
+            description?: string;
+            threats?: string;
+            vulnerabilities?: string;
+            existing_controls?: string;
+            assets?: string[];
+            applied_controls?: string[];
+            /** Format: int64 */
+            current_probability?: number | null;
+            /** Format: int64 */
+            current_impact?: number | null;
+            readonly current_level: {
+                [key: string]: unknown;
+            } | null;
+            /** Format: int64 */
+            residual_probability?: number | null;
+            /** Format: int64 */
+            residual_impact?: number | null;
+            readonly residual_level: {
+                [key: string]: unknown;
+            } | null;
+            treatment?: components["schemas"]["TreatmentEnum"];
+            justification?: string;
+            /** Format: uuid */
+            owner?: string | null;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
         };
         Role: {
             /** Format: uuid */
@@ -1112,6 +3021,67 @@ export interface components {
             /** Format: date-time */
             readonly created_at: string;
         };
+        /**
+         * @description Base for objects that live in a domain.
+         *
+         *     Subclasses name the registry type their custom fields use, and list the relations to check
+         *     in `link_fields` as {field name: registry key of the target}.
+         */
+        Task: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            domain: string;
+            title: string;
+            description?: string;
+            /** Format: uuid */
+            assignee?: string | null;
+            readonly assignee_email: string;
+            status?: components["schemas"]["TaskStatusEnum"];
+            priority?: number;
+            /** Format: date */
+            due_date?: string | null;
+            readonly overdue: boolean;
+            recurrence?: components["schemas"]["RecurrenceEnum"];
+            recurrence_interval?: number;
+            reminder_days_before?: number;
+            /** Format: date-time */
+            readonly completed_at: string | null;
+            /** Format: uuid */
+            readonly next_task: string | null;
+            linked_object_type?: string;
+            linked_object_id?: string;
+            custom_fields?: {
+                [key: string]: unknown;
+            };
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        /**
+         * @description * `to_do` - To do
+         *     * `in_progress` - In progress
+         *     * `done` - Done
+         *     * `cancelled` - Cancelled
+         * @enum {string}
+         */
+        TaskStatusEnum: "to_do" | "in_progress" | "done" | "cancelled";
+        /**
+         * @description * `open` - Not decided
+         *     * `mitigate` - Mitigate
+         *     * `accept` - Accept
+         *     * `avoid` - Avoid
+         *     * `transfer` - Transfer
+         * @enum {string}
+         */
+        TreatmentEnum: "open" | "mitigate" | "accept" | "avoid" | "transfer";
+        /**
+         * @description * `primary` - Primary (process or information)
+         *     * `support` - Supporting (system, device, site, person)
+         * @enum {string}
+         */
+        TypeEnum: "primary" | "support";
         User: {
             /** Format: uuid */
             readonly id: string;
@@ -1162,6 +3132,302 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["About"];
+                };
+            };
+        };
+    };
+    applied_controls_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAppliedControlList"];
+                };
+            };
+        };
+    };
+    applied_controls_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AppliedControl"];
+                "application/x-www-form-urlencoded": components["schemas"]["AppliedControl"];
+                "multipart/form-data": components["schemas"]["AppliedControl"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AppliedControl"];
+                };
+            };
+        };
+    };
+    applied_controls_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this applied control. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AppliedControl"];
+                };
+            };
+        };
+    };
+    applied_controls_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this applied control. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AppliedControl"];
+                "application/x-www-form-urlencoded": components["schemas"]["AppliedControl"];
+                "multipart/form-data": components["schemas"]["AppliedControl"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AppliedControl"];
+                };
+            };
+        };
+    };
+    applied_controls_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this applied control. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    applied_controls_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this applied control. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedAppliedControl"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedAppliedControl"];
+                "multipart/form-data": components["schemas"]["PatchedAppliedControl"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AppliedControl"];
+                };
+            };
+        };
+    };
+    assets_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAssetList"];
+                };
+            };
+        };
+    };
+    assets_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Asset"];
+                "application/x-www-form-urlencoded": components["schemas"]["Asset"];
+                "multipart/form-data": components["schemas"]["Asset"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Asset"];
+                };
+            };
+        };
+    };
+    assets_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this asset. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Asset"];
+                };
+            };
+        };
+    };
+    assets_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this asset. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Asset"];
+                "application/x-www-form-urlencoded": components["schemas"]["Asset"];
+                "multipart/form-data": components["schemas"]["Asset"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Asset"];
+                };
+            };
+        };
+    };
+    assets_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this asset. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    assets_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this asset. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedAsset"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedAsset"];
+                "multipart/form-data": components["schemas"]["PatchedAsset"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Asset"];
                 };
             };
         };
@@ -1420,6 +3686,25 @@ export interface operations {
             };
         };
     };
+    auth_directory_list: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DirectoryEntry"][];
+                };
+            };
+        };
+    };
     auth_login_create: {
         parameters: {
             query?: never;
@@ -1506,6 +3791,196 @@ export interface operations {
         responses: {
             /** @description No response body */
             204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    compliance_assessments_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedComplianceAssessmentList"];
+                };
+            };
+        };
+    };
+    compliance_assessments_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ComplianceAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["ComplianceAssessment"];
+                "multipart/form-data": components["schemas"]["ComplianceAssessment"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ComplianceAssessment"];
+                };
+            };
+        };
+    };
+    compliance_assessments_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this compliance assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ComplianceAssessment"];
+                };
+            };
+        };
+    };
+    compliance_assessments_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this compliance assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ComplianceAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["ComplianceAssessment"];
+                "multipart/form-data": components["schemas"]["ComplianceAssessment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ComplianceAssessment"];
+                };
+            };
+        };
+    };
+    compliance_assessments_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this compliance assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    compliance_assessments_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this compliance assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedComplianceAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedComplianceAssessment"];
+                "multipart/form-data": components["schemas"]["PatchedComplianceAssessment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ComplianceAssessment"];
+                };
+            };
+        };
+    };
+    compliance_assessments_suggestions_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this compliance assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    compliance_assessments_workbench_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this compliance assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -1657,6 +4132,25 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CustomFieldDefinition"];
+                };
+            };
+        };
+    };
+    dashboard_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Dashboard"];
                 };
             };
         };
@@ -1850,6 +4344,398 @@ export interface operations {
             };
         };
     };
+    evidence_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedEvidenceList"];
+                };
+            };
+        };
+    };
+    evidence_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Evidence"];
+                "application/x-www-form-urlencoded": components["schemas"]["Evidence"];
+                "multipart/form-data": components["schemas"]["Evidence"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Evidence"];
+                };
+            };
+        };
+    };
+    evidence_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this evidence. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Evidence"];
+                };
+            };
+        };
+    };
+    evidence_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this evidence. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Evidence"];
+                "application/x-www-form-urlencoded": components["schemas"]["Evidence"];
+                "multipart/form-data": components["schemas"]["Evidence"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Evidence"];
+                };
+            };
+        };
+    };
+    evidence_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this evidence. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    evidence_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this evidence. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedEvidence"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedEvidence"];
+                "multipart/form-data": components["schemas"]["PatchedEvidence"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Evidence"];
+                };
+            };
+        };
+    };
+    frameworks_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedFrameworkList"];
+                };
+            };
+        };
+    };
+    frameworks_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Framework"];
+                "multipart/form-data": components["schemas"]["Framework"];
+                "application/x-www-form-urlencoded": components["schemas"]["Framework"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Framework"];
+                };
+            };
+        };
+    };
+    frameworks_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Framework"];
+                };
+            };
+        };
+    };
+    frameworks_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Framework"];
+                "multipart/form-data": components["schemas"]["Framework"];
+                "application/x-www-form-urlencoded": components["schemas"]["Framework"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Framework"];
+                };
+            };
+        };
+    };
+    frameworks_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    frameworks_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedFramework"];
+                "multipart/form-data": components["schemas"]["PatchedFramework"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedFramework"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Framework"];
+                };
+            };
+        };
+    };
+    frameworks_derive_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Derive"];
+                "multipart/form-data": components["schemas"]["Derive"];
+                "application/x-www-form-urlencoded": components["schemas"]["Derive"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Framework"];
+                };
+            };
+        };
+    };
+    frameworks_export_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    frameworks_nodes_list: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this framework. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementNode"][];
+                };
+            };
+        };
+    };
+    frameworks_import_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Import"];
+                "multipart/form-data": components["schemas"]["Import"];
+                "application/x-www-form-urlencoded": components["schemas"]["Import"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Framework"];
+                };
+            };
+        };
+    };
     object_types_list: {
         parameters: {
             query?: never;
@@ -1865,6 +4751,761 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ObjectType"][];
+                };
+            };
+        };
+    };
+    requirement_assessments_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRequirementAssessmentList"];
+                };
+            };
+        };
+    };
+    requirement_assessments_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementAssessment"];
+                };
+            };
+        };
+    };
+    requirement_assessments_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedRequirementAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedRequirementAssessment"];
+                "multipart/form-data": components["schemas"]["PatchedRequirementAssessment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementAssessment"];
+                };
+            };
+        };
+    };
+    requirement_mappings_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRequirementMappingList"];
+                };
+            };
+        };
+    };
+    requirement_mappings_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement mapping. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementMapping"];
+                };
+            };
+        };
+    };
+    requirement_nodes_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRequirementNodeList"];
+                };
+            };
+        };
+    };
+    requirement_nodes_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RequirementNode"];
+                "application/x-www-form-urlencoded": components["schemas"]["RequirementNode"];
+                "multipart/form-data": components["schemas"]["RequirementNode"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementNode"];
+                };
+            };
+        };
+    };
+    requirement_nodes_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement node. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementNode"];
+                };
+            };
+        };
+    };
+    requirement_nodes_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement node. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RequirementNode"];
+                "application/x-www-form-urlencoded": components["schemas"]["RequirementNode"];
+                "multipart/form-data": components["schemas"]["RequirementNode"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementNode"];
+                };
+            };
+        };
+    };
+    requirement_nodes_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement node. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    requirement_nodes_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement node. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedRequirementNode"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedRequirementNode"];
+                "multipart/form-data": components["schemas"]["PatchedRequirementNode"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementNode"];
+                };
+            };
+        };
+    };
+    requirement_nodes_mappings_list: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this requirement node. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RequirementMapping"][];
+                };
+            };
+        };
+    };
+    risk_assessments_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRiskAssessmentList"];
+                };
+            };
+        };
+    };
+    risk_assessments_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["RiskAssessment"];
+                "multipart/form-data": components["schemas"]["RiskAssessment"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskAssessment"];
+                };
+            };
+        };
+    };
+    risk_assessments_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskAssessment"];
+                };
+            };
+        };
+    };
+    risk_assessments_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["RiskAssessment"];
+                "multipart/form-data": components["schemas"]["RiskAssessment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskAssessment"];
+                };
+            };
+        };
+    };
+    risk_assessments_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    risk_assessments_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedRiskAssessment"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedRiskAssessment"];
+                "multipart/form-data": components["schemas"]["PatchedRiskAssessment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskAssessment"];
+                };
+            };
+        };
+    };
+    risk_assessments_heatmap_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk assessment. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    risk_matrices_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRiskMatrixList"];
+                };
+            };
+        };
+    };
+    risk_matrices_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskMatrix"];
+                "application/x-www-form-urlencoded": components["schemas"]["RiskMatrix"];
+                "multipart/form-data": components["schemas"]["RiskMatrix"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskMatrix"];
+                };
+            };
+        };
+    };
+    risk_matrices_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk matrix. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskMatrix"];
+                };
+            };
+        };
+    };
+    risk_matrices_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk matrix. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskMatrix"];
+                "application/x-www-form-urlencoded": components["schemas"]["RiskMatrix"];
+                "multipart/form-data": components["schemas"]["RiskMatrix"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskMatrix"];
+                };
+            };
+        };
+    };
+    risk_matrices_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk matrix. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    risk_matrices_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk matrix. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedRiskMatrix"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedRiskMatrix"];
+                "multipart/form-data": components["schemas"]["PatchedRiskMatrix"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskMatrix"];
+                };
+            };
+        };
+    };
+    risk_scenarios_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRiskScenarioList"];
+                };
+            };
+        };
+    };
+    risk_scenarios_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskScenario"];
+                "application/x-www-form-urlencoded": components["schemas"]["RiskScenario"];
+                "multipart/form-data": components["schemas"]["RiskScenario"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskScenario"];
+                };
+            };
+        };
+    };
+    risk_scenarios_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk scenario. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskScenario"];
+                };
+            };
+        };
+    };
+    risk_scenarios_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk scenario. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskScenario"];
+                "application/x-www-form-urlencoded": components["schemas"]["RiskScenario"];
+                "multipart/form-data": components["schemas"]["RiskScenario"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskScenario"];
+                };
+            };
+        };
+    };
+    risk_scenarios_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk scenario. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    risk_scenarios_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this risk scenario. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedRiskScenario"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedRiskScenario"];
+                "multipart/form-data": components["schemas"]["PatchedRiskScenario"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskScenario"];
                 };
             };
         };
@@ -2105,6 +5746,176 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["Role"];
+                };
+            };
+        };
+    };
+    tasks_list: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Number of results to return per page. */
+                page_size?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedTaskList"];
+                };
+            };
+        };
+    };
+    tasks_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Task"];
+                "application/x-www-form-urlencoded": components["schemas"]["Task"];
+                "multipart/form-data": components["schemas"]["Task"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Task"];
+                };
+            };
+        };
+    };
+    tasks_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this task. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Task"];
+                };
+            };
+        };
+    };
+    tasks_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this task. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Task"];
+                "application/x-www-form-urlencoded": components["schemas"]["Task"];
+                "multipart/form-data": components["schemas"]["Task"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Task"];
+                };
+            };
+        };
+    };
+    tasks_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this task. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    tasks_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this task. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedTask"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedTask"];
+                "multipart/form-data": components["schemas"]["PatchedTask"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Task"];
+                };
+            };
+        };
+    };
+    tasks_complete_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A UUID string identifying this task. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Task"];
                 };
             };
         };

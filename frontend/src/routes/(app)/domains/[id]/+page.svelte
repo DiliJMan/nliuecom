@@ -28,7 +28,7 @@
 <svelte:head><title>{data.domain.name}</title></svelte:head>
 
 <p class="muted" style="margin-top: 20px">
-	<a href="/">Domains</a>
+	<a href="/domains">Domains</a>
 	{#each data.breadcrumb as ancestor (ancestor.id)} / <a href="/domains/{ancestor.id}">{ancestor.name}</a>{/each}
 </p>
 <h1>{data.domain.name}</h1>
