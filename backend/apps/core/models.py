@@ -16,3 +16,12 @@ class TimestampedModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class CustomFieldsModel(models.Model):
+    """Gives a model the JSON column that holds its custom field values."""
+
+    custom_fields = models.JSONField(default=dict, blank=True)
+
+    class Meta:
+        abstract = True

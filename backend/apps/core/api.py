@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from django.core.exceptions import ValidationError as DjangoValidationError
-from django.db.models import ProtectedError
+from django.db.models import ProtectedError, Q
 from rest_framework import permissions, status, viewsets
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
@@ -60,6 +60,10 @@ class ScopedModelViewSet(viewsets.ModelViewSet):
     permission_classes = [ScopedPermission]
     # Extra @action names mapped to the permission action they require.
     action_permissions: dict[str, str] = {}
+    # Query-string conveniences. Only the names listed here are honoured.
+    filter_fields: tuple[str, ...] = ()
+    search_fields: tuple[str, ...] = ()
+    ordering_fields: tuple[str, ...] = ()
 
     @property
     def type_info(self) -> registry.ObjectType:
@@ -82,6 +86,24 @@ class ScopedModelViewSet(viewsets.ModelViewSet):
         if self.domain_lookup is None:
             return queryset if policy.has_any_grant(user, self.code("view")) else queryset.none()
         return policy.scope_queryset(user, queryset, self.code("view"), self.domain_lookup)
+
+    def filter_queryset(self, queryset):
+        queryset = super().filter_queryset(queryset)
+        params = self.request.query_params
+        for name in self.filter_fields:
+            value = params.get(name)
+            if value not in (None, ""):
+                queryset = queryset.filter(**{name: value})
+        term = params.get("search", "").strip()
+        if term and self.search_fields:
+            match = Q()
+            for name in self.search_fields:
+                match |= Q(**{f"{name}__icontains": term})
+            queryset = queryset.filter(match)
+        ordering = params.get("ordering", "")
+        if ordering.lstrip("-") in self.ordering_fields:
+            queryset = queryset.order_by(ordering, "pk")
+        return queryset
 
     def check_permissions(self, request):
         super().check_permissions(request)

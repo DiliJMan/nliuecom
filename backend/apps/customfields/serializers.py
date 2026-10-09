@@ -18,6 +18,8 @@ class CustomFieldsSerializerMixin:
 
     def validate(self, attrs):
         attrs = super().validate(attrs)
+        if not self.custom_fields_object_type:
+            return attrs
         if "custom_fields" in attrs or self.instance is None:
             try:
                 attrs["custom_fields"] = validate_values(

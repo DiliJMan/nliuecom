@@ -54,6 +54,11 @@ INSTALLED_APPS = [
     "apps.customfields",
     "apps.attachments",
     "apps.frameworks",
+    "apps.assets",
+    "apps.controls",
+    "apps.risk",
+    "apps.compliance",
+    "apps.tasks",
 ]
 
 MIDDLEWARE = [
@@ -137,6 +142,27 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],
 }
+
+# Reminder emails. Messages are printed to the console until an SMTP server is configured.
+_smtp_host = os.environ.get("NLIUE_SMTP_HOST")
+if _smtp_host:
+    _smtp_options = {
+        "host": _smtp_host,
+        "username": os.environ.get("NLIUE_SMTP_USER", ""),
+        "password": os.environ.get("NLIUE_SMTP_PASSWORD", ""),
+        "use_tls": _bool("NLIUE_SMTP_TLS", True),
+    }
+    if os.environ.get("NLIUE_SMTP_PORT"):
+        _smtp_options["port"] = int(os.environ["NLIUE_SMTP_PORT"])
+    MAILERS = {
+        "default": {
+            "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+            "OPTIONS": _smtp_options,
+        }
+    }
+else:
+    MAILERS = {"default": {"BACKEND": "django.core.mail.backends.console.EmailBackend"}}
+DEFAULT_FROM_EMAIL = os.environ.get("NLIUE_FROM_EMAIL", "nliuecom@localhost")
 
 # AGPL section 13: users of a network service must be able to obtain its source.
 SOURCE_URL = os.environ.get("NLIUE_SOURCE_URL", "https://github.com/DiliJMan/nliuecom")
