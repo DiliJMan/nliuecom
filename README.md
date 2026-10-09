@@ -55,4 +55,8 @@ cd ../frontend && npm run gen:api
 
 ## Licence
 
-This repository's `LICENSE` file currently holds the GNU GPL v3 text. Choose the licence you want before publishing. [docs/reference-policy.md](docs/reference-policy.md) explains how this project relates to the community project that inspired it.
+GNU Affero General Public License, version 3 (the latest published version), or any later version: SPDX `AGPL-3.0-or-later`. The full text is in [LICENSE](LICENSE).
+
+Section 13 of the AGPL gives users of a network service the right to obtain its source. The footer of every page links to it; set `NLIUE_SOURCE_URL` if you host a modified copy somewhere else.
+
+[docs/reference-policy.md](docs/reference-policy.md) explains how this project relates to the community project that inspired it.

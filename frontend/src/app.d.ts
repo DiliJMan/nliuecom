@@ -7,6 +7,7 @@ declare global {
 		}
 		interface PageData {
 			user?: Schemas['Me'] | null;
+			about?: { name: string; licence: string; licence_url: string; source_url: string } | null;
 		}
 	}
 }

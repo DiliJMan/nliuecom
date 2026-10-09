@@ -137,6 +137,9 @@ SPECTACULAR_SETTINGS = {
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],
 }
 
+# AGPL section 13: users of a network service must be able to obtain its source.
+SOURCE_URL = os.environ.get("NLIUE_SOURCE_URL", "https://github.com/DiliJMan/nliuecom")
+
 # Honour X-Forwarded-For only when a trusted front end (the SvelteKit server) sits in front.
 TRUST_FORWARDED_FOR = _bool("NLIUE_TRUST_FORWARDED_FOR", False)
 

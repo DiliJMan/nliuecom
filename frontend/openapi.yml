@@ -4,6 +4,22 @@ info:
   version: 0.1.0
   description: Governance, risk and compliance platform
 paths:
+  /api/about/:
+    get:
+      operationId: about_retrieve
+      description: Licence and source location. Public, so the sign-in page can show
+        them too.
+      tags:
+      - about
+      security:
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/About'
+          description: ''
   /api/attachments/:
     get:
       operationId: attachments_list
@@ -1467,6 +1483,22 @@ paths:
           description: No response body
 components:
   schemas:
+    About:
+      type: object
+      properties:
+        name:
+          type: string
+        licence:
+          type: string
+        licence_url:
+          type: string
+        source_url:
+          type: string
+      required:
+      - licence
+      - licence_url
+      - name
+      - source_url
     ActionEnum:
       enum:
       - create

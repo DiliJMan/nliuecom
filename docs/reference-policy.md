@@ -16,4 +16,4 @@ The reference repository was read to learn which features exist and how its data
 
 ## Why
 
-Copying AGPL code would place this project under the AGPL. The commercial directory carries a licence that forbids use without a contract. Working from descriptions keeps the licence of this repository a free choice, which is for you to make. This is practical guidance, not legal advice.
+This project is itself under the AGPL, so the licences of the two code bases are compatible. The rules above stay in force anyway, for three reasons: the commercial `enterprise` directory is not available under the AGPL, a clean record of where each part came from protects every later contributor, and original work keeps the design free to diverge. This is practical guidance, not legal advice.
