@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - name: Install
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --upgrade pip
+          .venv/bin/python - <<'PY' > requirements-ci.txt
+          import tomllib
+          p = tomllib.load(open("pyproject.toml", "rb"))
+          print("\n".join(p["project"]["dependencies"] + p["dependency-groups"]["dev"]))
+          PY
+          .venv/bin/python -m pip install -r requirements-ci.txt
+      - name: Lint
+        run: .venv/bin/python -m ruff check .
+      - name: Migrations are up to date
+        run: .venv/bin/python manage.py makemigrations --check --dry-run
+        env:
+          NLIUE_DATA_DIR: ${{ runner.temp }}/nliue-data
+      - name: API schema is up to date
+        run: |
+          .venv/bin/python manage.py spectacular --file "$RUNNER_TEMP/openapi.yml"
+          diff -u ../frontend/openapi.yml "$RUNNER_TEMP/openapi.yml"
+        env:
+          NLIUE_DATA_DIR: ${{ runner.temp }}/nliue-data
+      - name: Tests
+        run: .venv/bin/python -m pytest
+        env:
+          NLIUE_DATA_DIR: ${{ runner.temp }}/nliue-data
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22.x"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Generated API types are up to date
+        run: |
+          npx openapi-typescript openapi.yml -o "$RUNNER_TEMP/schema.d.ts"
+          diff -u src/lib/api/schema.d.ts "$RUNNER_TEMP/schema.d.ts"
+      - run: npm run check
+      - run: npm test
+      - run: npm run build

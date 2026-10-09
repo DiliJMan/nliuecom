@@ -1,0 +1,38 @@
+[project]
+name = "nliuecom-backend"
+version = "0.1.0"
+description = "Governance, risk and compliance platform: backend API"
+license = "AGPL-3.0-or-later"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=6.1,<7",
+    "djangorestframework>=3.16,<4",
+    "drf-spectacular>=0.29,<0.31",
+    "argon2-cffi>=23.1,<26",
+    "python-dotenv>=1.0,<2",
+    "openpyxl>=3.1,<4",
+    "pypdf>=6,<7",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "pytest-django>=4.11,<5",
+    "ruff>=0.8",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["S101", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S105", "S106", "S107", "S603", "S607", "E501", "B017"]
+"conftest.py" = ["S105", "S106", "S107", "E501"]
+"**/migrations/**" = ["E501"]
