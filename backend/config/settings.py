@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "apps.audit",
     "apps.customfields",
     "apps.attachments",
+    "apps.frameworks",
 ]
 
 MIDDLEWARE = [
